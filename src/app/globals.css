@@ -1,27 +1,413 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body{
+    color: white;
+    background-color: black;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Navbar Container */
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  
+  /* Logo and Title */
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
+  
+  .navbar-title {
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+  
+  /* Mobile Menu Icon */
+  .menu-icon {
+    cursor: pointer;
+    display: block;
+  }
+  
+  @media (min-width: 1024px) {
+    .menu-icon {
+      display: none;
+    }
+  }
+  
+  /* Mobile Menu */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #2d3748;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+  }
+  
+  .mobile-menu.show {
+    transform: translateX(0);
+  }
+  
+  /* Close Icon */
+  .close-icon {
+    color: white;
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    cursor: pointer;
+  }
+  
+  /* Mobile Menu Link */
+  .mobile-menu-link {
+    color: #cbd5e0;
+    font-size: 1.5rem;
+    margin: 16px 0;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .mobile-menu-link:hover {
+    color: white;
+  }
+  
+  .mobile-menu-link.active {
+    color: white;
+  }
+  
+  /* Desktop Menu */
+  .desktop-menu {
+    display: none;
+  }
+  
+  @media (min-width: 1024px) {
+    .desktop-menu {
+      display: flex;
+      gap: 40px;
+    }
+  }
+  
+  .desktop-menu-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .desktop-menu-link:hover {
+    color: #e7a4e7ec;
+  }
+  
+  .desktop-menu-link.active {
+    color: #e7a4e7ec;
+  }
+  
+  /* Hero Section */
+.hero-section {
+    padding: 150px 0;
+    background-image: url("/hero.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+    display: flex;
+    align-items: center;
 }
+
+/* Hero Container */
+.hero-container {
+    max-width: 1200px;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns content to the left */
+}
+
+/* Welcome Text */
+.hero-welcome {
+    background: linear-gradient(to right, #c10505, #045ee1);
+    padding: 8px 15px;
+    padding-left: 14px;
+    width: 300px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Heading */
+.hero-heading {
+    font-size: 60px;
+    line-height: 65px;
+    color: white;
+    margin-bottom: 28px;
+}
+
+/* Button */
+.hero-button {
+    margin-top: 24px;
+    background-color: #1e3a8a;
+    color: white;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: background 0.3s ease;
+    cursor: pointer;
+}
+
+.hero-button:hover {
+    background: linear-gradient(to bottom right, #045ee1, #c10505);
+}
+
+/* About Section */
+.about-section {
+    padding: 2.5rem 0;
+  }
+  
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .about-grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  /* Image Section */
+  .about-image {
+    border: 5px solid #3b82f6; /* Blue border color */
+  }
+  
+  .about-img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Text Section */
+  .about-text {
+    color: white;
+  }
+  
+  .about-heading {
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .about-paragraph {
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .about-item {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+  }
+  
+  .about-item strong {
+    font-weight: bold;
+  }
+  
+  .about-subtext {
+    color: #9ca3af; /* Gray text color */
+  }
+  
+  /* Media Query for Mobile Responsiveness */
+  @media (max-width: 1024px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .about-image {
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  /* Our Service Section */
+.our-service-section {
+    padding: 4rem 0;
+    background-color: #0f0f0f;
+  }
+  
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .section-heading {
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .section-subheading {
+    color: #9ca3af; /* Gray text color */
+  }
+  
+  /* Services Grid */
+  .services-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Service Item */
+  .service-item {
+    background-color: #151515;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+  }
+  
+  .service-item img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+  }
+  
+  .service-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .service-description {
+    color: #9ca3af; /* Gray text color */
+  }
+  
+  /* Media Query for Mobile Responsiveness */
+  @media (max-width: 1024px) {
+    .services-grid {
+      grid-template-columns: 1fr 1fr; /* Two columns layout for smaller screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr; /* Single column layout for mobile screens */
+    }
+  }
+
+  /* Contact Section */
+.contact-section {
+    padding-top: 4rem;  /* Equivalent to py-16 */
+    padding-bottom: 4rem;  /* Equivalent to py-16 */
+    background-color: #000;  /* Equivalent to bg-black */
+    color: white;
+    border-top: 4px solid #f44336;  /* Equivalent to border-t-4 and border-red-500 */
+    padding-top: 2.5rem;  /* Equivalent to pt-10 */
+  }
+  
+  /* Contact Container */
+  .contact-container {
+    max-width: 1140px;  /* Equivalent to Tailwind's container */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;  /* Column layout for mobile */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @media (min-width: 1024px) {  /* For larger screens (lg) */
+    .contact-container {
+      flex-direction: row;  /* Row layout for larger screens */
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  
+  /* Image Container */
+  .image-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 2.5rem; /* Equivalent to mb-10 */
+  }
+  
+  .image-rounded {
+    border-radius: 0.75rem;  /* Equivalent to rounded-lg */
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Form Container */
+  .form-container {
+    width: 100%;
+    background-color: #1a202c; /* Equivalent to bg-gray-900 */
+    padding: 2rem;  /* Equivalent to p-8 */
+    border-radius: 0.75rem;  /* Equivalent to rounded-lg */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Equivalent to shadow-lg */
+  }
+  
+  /* Form Title */
+  .form-title {
+    font-size: 2.25rem;  /* Equivalent to text-4xl */
+    font-weight: 700;    /* Equivalent to font-bold */
+    margin-bottom: 1.5rem;  /* Equivalent to mb-6 */
+  }
+  
+  /* Form Description */
+  .form-description {
+    margin-bottom: 2rem;  /* Equivalent to mb-8 */
+  }
+  
+  /* Input and Textarea Styles */
+  .input-field,
+  .textarea-field {
+    width: 100%;
+    padding: 1rem;  /* Equivalent to p-3 */
+    border-radius: 0.75rem;  /* Equivalent to rounded-lg */
+    background-color: #2d3748;  /* Equivalent to bg-gray-800 */
+    color: white;
+    border: none;
+    outline: none;
+  }
+  
+  .input-field:focus,
+  .textarea-field:focus {
+    border: 2px solid #f44336;  /* Equivalent to focus:ring-2 and focus:ring-red-500 */
+  }
+  
+  /* Textarea Specific Styles */
+  .textarea-field {
+    height: 8rem;  /* Equivalent to h-32 */
+  }
+  
+  /* Submit Button */
+  .submit-button {
+    width: 100%;
+    background-color: #f44336;  /* Equivalent to bg-red-500 */
+    color: white;
+    font-weight: 700;  /* Equivalent to font-bold */
+    padding: 1rem 1.5rem;  /* Equivalent to py-3 px-6 */
+    border-radius: 0.75rem;  /* Equivalent to rounded-lg */
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #e53935;  /* Equivalent to hover:bg-red-600 */
+  }
+  

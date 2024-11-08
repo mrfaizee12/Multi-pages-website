@@ -1,12 +1,23 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import { Inter } from "next/font/google";
+import Footer from "@/components/Footer";
+import "./Footer.css";
+import "./About.css";
 
+const inter = Inter({ subsets: ["latin"] });
+
+// Commented out because these are not used currently
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -25,10 +36,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${inter.className}`}>
+        <Navbar />  {/* Navbar placed here */}
+        {children}  {/* Page content (e.g., About) placed below */}
+        <Footer />
       </body>
     </html>
   );

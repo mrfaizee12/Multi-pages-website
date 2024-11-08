@@ -1,0 +1,42 @@
+/* Footer Styles */
+.footer {
+    background-color: #0F0F0F;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  /* Container Styles specific to the footer */
+  .footer .container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Copyright Text Styles */
+  .footer .copyright-text {
+    color: white;
+    font-size: 0.875rem; /* Equivalent to text-sm */
+  }
+  
+  /* Social Media Icons */
+  .footer .social-icons {
+    display: flex;
+    gap: 1.5rem; /* Space between icons, equivalent to space-x-6 */
+  }
+  
+  /* Social Icon Styling */
+  .footer .social-icon {
+    width: 30px;
+    height: 30px;
+    transition: opacity 0.3s ease;
+  }
+  
+  .footer .social-icon:hover {
+    opacity: 0.75;
+  }
+  
